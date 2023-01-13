@@ -34,7 +34,30 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("API"),
       ),
-      body: Column(children: []),
+      body: Column(children: [
+        Expanded(
+          child: FutureBuilder(
+              future: getpostApi(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Text("Loading...");
+                } else {
+                  return ListView.builder(
+                      itemCount: postList.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          child: Column(
+                            children: [
+                              Text(postList[index].title.toString()),
+                              Text(postList[index].body.toString()),
+                            ],
+                          ),
+                        );
+                      });
+                }
+              }),
+        ),
+      ]),
     );
   }
 }
