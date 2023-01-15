@@ -1,4 +1,4 @@
-import 'package:api_project/custom_model.dart';
+import 'package:api_project/comlex_json.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CustomModel(),
+      home: ComplexJson(),
     );
   }
 }
